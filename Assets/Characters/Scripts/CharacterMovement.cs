@@ -45,7 +45,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MoveCharacter();
+        HandleMovement();
         AnimateCharacter();
 
         Debug.Log(_controller.isGrounded);
@@ -55,36 +55,46 @@ public class CharacterMovement : MonoBehaviour
     {
         _playerMoveInput.x = Input.GetAxis("Horizontal");
         _playerMoveInput.z = Input.GetAxis("Vertical");
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            _jumped = true;
-        }
-
     }
 
-    private void MoveCharacter()
+    private void HandleMovement()
     {
         if (_playerMoveInput.magnitude > 0)
         {
-            WALKING_STATE = true;
-
-            float targetAngle = Mathf.Atan2(_playerMoveInput.x, _playerMoveInput.z) * Mathf.Rad2Deg + _cam.eulerAngles.y;
-            
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turmSmoothvelocity, _turmSmoothTime);
-
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
-
-            _playerDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-
-            _playerDirection *= _walkSpeed;
+            MovePlayer();
 
         } else
         {
-            _playerDirection = Vector3.zero;
-            WALKING_STATE = false;
+            IdlePlayer();
         }
 
+        MoveCharacterController();
+    }
+
+    private void MovePlayer()
+    {
+        WALKING_STATE = true;
+
+        float targetAngle = Mathf.Atan2(_playerMoveInput.x, _playerMoveInput.z) * Mathf.Rad2Deg + _cam.eulerAngles.y;
+
+        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turmSmoothvelocity, _turmSmoothTime);
+
+        transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+        _playerDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+
+        _playerDirection *= _walkSpeed;
+
+    }
+
+    private void IdlePlayer()
+    {
+        WALKING_STATE = false;
+        _playerDirection = Vector3.zero;
+    }
+
+    private void MoveCharacterController()
+    {
         _playerDirection += Physics.gravity;
         _controller.Move(_playerDirection * Time.deltaTime);
     }
@@ -94,6 +104,4 @@ public class CharacterMovement : MonoBehaviour
         _animator.SetBool(JUMPING_TAG, JUMPING_STATE);
         _animator.SetBool(WALKING_TAG, WALKING_STATE);
     }
-
-
 }
