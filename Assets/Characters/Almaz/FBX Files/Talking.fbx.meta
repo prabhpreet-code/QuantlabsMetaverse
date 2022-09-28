@@ -1,11 +1,14 @@
 fileFormatVersion: 2
-guid: 0257313d610c44784a3172bd7126b059
+guid: c047475620b0a431998a3197c9e10c2f
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
     second: mixamo.com
+  - first:
+      74: -8703035399731986702
+    second: Talking
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -27,7 +30,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -36,21 +39,21 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: mixamo.com
+      name: Talking
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 22
+      lastFrame: 118
       wrapMode: 0
       orientationOffsetY: 0
-      level: 0.06
+      level: 0.07
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
-      loopBlendPositionY: 1
+      loopBlendPositionY: 0
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 0
@@ -545,13 +548,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: AlmazAvatar(Clone)
+    - name: Almaz Model(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Armature
-      parentName: AlmazAvatar(Clone)
+      parentName: Almaz Model(Clone)
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
@@ -891,52 +894,52 @@ ModelImporter:
       rotation: {x: -0.0069072526, y: 0.6984306, z: -0.017670166, w: 0.7154264}
       scale: {x: 1.0000002, y: 1.0000027, z: 1.0000033}
     - name: EyeLeft
-      parentName: AlmazAvatar(Clone)
+      parentName: Almaz Model(Clone)
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: EyeRight
-      parentName: AlmazAvatar(Clone)
+      parentName: Almaz Model(Clone)
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: Wolf3D_Head
-      parentName: AlmazAvatar(Clone)
+      parentName: Almaz Model(Clone)
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: Wolf3D_Teeth
-      parentName: AlmazAvatar(Clone)
+      parentName: Almaz Model(Clone)
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: Wolf3D_Body
-      parentName: AlmazAvatar(Clone)
+      parentName: Almaz Model(Clone)
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: Wolf3D_Outfit_Bottom
-      parentName: AlmazAvatar(Clone)
+      parentName: Almaz Model(Clone)
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: Wolf3D_Outfit_Footwear
-      parentName: AlmazAvatar(Clone)
+      parentName: Almaz Model(Clone)
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: Wolf3D_Outfit_Top
-      parentName: AlmazAvatar(Clone)
+      parentName: Almaz Model(Clone)
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: Wolf3D_Hair
-      parentName: AlmazAvatar(Clone)
+      parentName: Almaz Model(Clone)
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: Wolf3D_Glasses
-      parentName: AlmazAvatar(Clone)
+      parentName: Almaz Model(Clone)
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
