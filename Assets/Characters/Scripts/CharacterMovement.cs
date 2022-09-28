@@ -13,9 +13,9 @@ public class CharacterMovement : MonoBehaviour
     private float _jumpHeight = 4f;
 
     //Character Physical Properties
-    private bool _isGrounded;
     private bool _jumped;
-    private bool _talked;
+    private Vector3 _playerMoveInput;
+    private Vector3 _playerDirection;
 
     //Camera variables
     [SerializeField]
@@ -23,18 +23,12 @@ public class CharacterMovement : MonoBehaviour
     private float _turmSmoothTime = 0.1f;
     private float _turmSmoothvelocity;
 
-    private Vector3 _playerMoveInput;
-    private Vector3 _playerDirection;
-
     //Animator Components
     private string WALKING_TAG = "isWalking";
     private bool WALKING_STATE;
 
     private string JUMPING_TAG = "isJumping";
     private bool JUMPING_STATE;
-
-    private string TALKING_TAG = "isTalking";
-    private bool TALKING_STATE;
 
     private void Awake()
     {
@@ -61,8 +55,6 @@ public class CharacterMovement : MonoBehaviour
         _playerMoveInput.z = Input.GetAxis("Vertical");
 
         _jumped = Input.GetKey("space");
-        if (Input.GetKeyDown("f"))
-            _talked = true;
             
     }
 
@@ -78,7 +70,6 @@ public class CharacterMovement : MonoBehaviour
             IdlePlayer();
         }
 
-        TalkPlayer();
         MoveCharacterController();
     }
 
@@ -97,41 +88,18 @@ public class CharacterMovement : MonoBehaviour
             _playerDirection *= _walkSpeed;
 
             JUMPING_STATE = false;
-            
         }
 
-        _talked = false;
         WALKING_STATE = true;
     }
 
     private void IdlePlayer()
     {
-        if (!_talked)
-        {
-            _playerDirection.x = 0f;
-            _playerDirection.z = 0f;
+        _playerDirection.x = 0f;
+        _playerDirection.z = 0f;
 
-            JUMPING_STATE = false;
-            WALKING_STATE = false;
-        }
-        
-    }
-
-    private void TalkPlayer()
-    {
-        if (_talked)
-        {
-            TALKING_STATE = true;
-
-            JUMPING_STATE = false;
-            WALKING_STATE = false;
-
-            _playerDirection.x = 0f;
-            _playerDirection.z = 0f;
-        } else
-        {
-            TALKING_STATE = false;
-        }
+        JUMPING_STATE = false;
+        WALKING_STATE = false;
     }
 
     private void JumpPlayer()
@@ -156,6 +124,5 @@ public class CharacterMovement : MonoBehaviour
     {
         _animator.SetBool(JUMPING_TAG, JUMPING_STATE);
         _animator.SetBool(WALKING_TAG, WALKING_STATE);
-        _animator.SetBool(TALKING_TAG, TALKING_STATE);
     }
 }
