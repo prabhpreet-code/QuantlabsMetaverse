@@ -1153,7 +1153,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1807901923}
-  m_LocalRotation: {x: -0.10906848, y: 0.44734716, z: -0.055070937, w: -0.885975}
+  m_LocalRotation: {x: -0.109068505, y: 0.44734716, z: -0.055070955, w: -0.885975}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1207,19 +1207,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1511598559}
---- !u!114 &1845115945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132148765707049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca2b250bb090b47a9804444bc9f5f25e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cam: {fileID: 963194228}
 --- !u!143 &1845115950
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1899,7 +1886,8 @@ GameObject:
   - component: {fileID: 543450653022884243}
   - component: {fileID: 5866666021227580393}
   - component: {fileID: 1845115950}
-  - component: {fileID: 1845115945}
+  - component: {fileID: 5866666021227580395}
+  - component: {fileID: 5866666021227580394}
   m_Layer: 0
   m_Name: AlmazAvatar
   m_TagString: Untagged
@@ -4442,6 +4430,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5866666021227580394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148765707049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1feccbd7193fa4d8e803d9809481589a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5866666021227580395}
+--- !u!114 &5866666021227580395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148765707049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86edce3cb25c044ed9b0c58d05422647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  animator: {fileID: 0}
+  cam: {fileID: 963194228}
+  playerDirection: {x: 0, y: 0, z: 0}
+  isTrading: 0
 --- !u!1 &5916072919806987169
 GameObject:
   m_ObjectHideFlags: 0
