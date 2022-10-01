@@ -9,7 +9,7 @@ public class PlayerBehaviorMove : IPlayerBehavior
     private float _turmSmoothvelocity;
 
     private float _walkSpeed = 4f;
-    private float _jumpHeight = 4f;
+    private float _jumpHeight = 5.5f;
 
     private Vector3 _playerMoveInput;
     private Vector3 _playerDirection;

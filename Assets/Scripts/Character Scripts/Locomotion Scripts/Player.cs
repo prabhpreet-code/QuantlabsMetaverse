@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
         this.behaviorsMap[typeof(PlayerBehaviorIdle)] = new PlayerBehaviorIdle();
         this.behaviorsMap[typeof(PlayerBehaviorMove)] = new PlayerBehaviorMove();
         this.behaviorsMap[typeof(PlayerBehaviorTrade)] = new PlayerBehaviorTrade();
+        this.behaviorsMap[typeof(PlayerBehaviorSeat)] = new PlayerBehaviorSeat();
     }
 
     private void SetBehavior(IPlayerBehavior newBehavior)
@@ -94,6 +95,12 @@ public class Player : MonoBehaviour
     public void SetBehaviorTrade()
     {
         var behavior = this.GetBehavior<PlayerBehaviorTrade>();
+        this.SetBehavior(behavior);
+    }
+
+    public void SetBehaviourSeat()
+    {
+        var behavior = this.GetBehavior<PlayerBehaviorSeat>();
         this.SetBehavior(behavior);
     }
 
