@@ -11,14 +11,16 @@ public class Player : MonoBehaviour
     public CharacterController controller;
     public Animator animator;
 
-    [SerializeField]
-    public Transform cam;
+    [SerializeField] public Transform cam;
+    [SerializeField] public Transform cameraTarget;
 
     public Vector3 playerDirection;
 
     //Player Conditions
     public bool isTrading;
     public bool isJumping;
+    public bool isSeating;
+    public bool isWalking;
 
     /// <summary>
     /// Loading player components
@@ -68,12 +70,18 @@ public class Player : MonoBehaviour
         return this.behaviorsMap[type];
     }
 
+    /// <summary>
+    /// Update Input and Condition Parameters
+    /// </summary>
     private void Update()
     {
         if (this.behaviourCurrent != null)
             this.behaviourCurrent.Update(this);
     }
 
+    /// <summary>
+    /// Fixed update to maintain physics
+    /// </summary>
     private void FixedUpdate()
     {
         if (this.behaviourCurrent != null)

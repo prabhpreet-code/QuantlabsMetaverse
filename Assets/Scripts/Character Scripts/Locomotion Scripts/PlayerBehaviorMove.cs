@@ -39,6 +39,8 @@ public class PlayerBehaviorMove : IPlayerBehavior
             player.animator.SetBool(JUMPING_TAG, true);
             _playerJumped = true;
         }
+
+        if (_playerMoveInput.magnitude == 0) player.SetBehaviorIdle();
     }
 
     void IPlayerBehavior.FixedUpdate(Player player)

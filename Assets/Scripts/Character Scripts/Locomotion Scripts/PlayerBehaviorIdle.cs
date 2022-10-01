@@ -16,7 +16,20 @@ public class PlayerBehaviorIdle : IPlayerBehavior
 
     void IPlayerBehavior.Update(Player player)
     {
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0 && !player.isTrading && !player.isSeating)
+            player.SetBehaviorWalk();
 
+        if (Input.GetKeyDown("t"))
+        {
+            player.SetBehaviorTrade();
+            player.isTrading = true;
+        }
+
+        if (Input.GetKeyDown("f"))
+        {
+            player.SetBehaviourSeat();
+            player.isSeating = true;
+        }
     }
 
     void IPlayerBehavior.FixedUpdate(Player player)

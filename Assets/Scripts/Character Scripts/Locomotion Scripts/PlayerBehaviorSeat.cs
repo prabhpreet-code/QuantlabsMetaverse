@@ -1,12 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerBehaviorSeat : IPlayerBehavior
 {
     private float _seatRange = 1f;
     private float _seatOffset = 90f;
+    private float _camSpeed = 5f;
+
+    private Vector3 _cameraInitialPos;
     private Vector3 _axisRotation;
+    private Vector3 _cameraMovementInput;
+    private Vector3 _cameraDirection;
+
+    private float _turmSmoothTime = 0.1f;
+    private float _turmSmoothvelocity;
 
     private LayerMask chairLayer;
 
@@ -36,9 +45,14 @@ public class PlayerBehaviorSeat : IPlayerBehavior
             _axisRotation.x = player.transform.eulerAngles.x;
             _axisRotation.y = currentChair.transform.eulerAngles.y + _seatOffset;
             _axisRotation.z = player.transform.eulerAngles.z;
-
+             
             player.transform.eulerAngles = _axisRotation;
             player.transform.position = currentChair.transform.position;
+
+            _cameraInitialPos = player.cameraTarget.position;
+        } else
+        {
+            player.SetBehaviorIdle();
         }
         
     }
@@ -48,13 +62,40 @@ public class PlayerBehaviorSeat : IPlayerBehavior
         if (currentChair != null)
         {
             player.animator.SetBool("isSeating", false);
+            player.cameraTarget.position = _cameraInitialPos;
             currentChair.GetComponent<Chair>().IsBusy = false;
+
+            player.isSeating = false;
             currentChair = null;
         }
     }
 
     void IPlayerBehavior.Update(Player player)
     {
+        if (currentChair != null)
+        {
+            _cameraMovementInput.x = Input.GetAxis("Horizontal");
+            _cameraMovementInput.z = Input.GetAxis("Vertical");
+
+            if (_cameraMovementInput.magnitude > 0)
+            {
+                float targetAngle = Mathf.Atan2(_cameraMovementInput.x, _cameraMovementInput.z) * Mathf.Rad2Deg + player.cam.eulerAngles.y;
+                float angle = Mathf.SmoothDampAngle(player.transform.eulerAngles.y, targetAngle, ref _turmSmoothvelocity, _turmSmoothTime);
+
+                player.cameraTarget.rotation = Quaternion.Euler(0f, angle, 0f);
+
+                _cameraDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+
+                _cameraDirection.y -= UnityEditor.TransformUtils.GetInspectorRotation(player.cam).x * Time.deltaTime;
+
+                player.cameraTarget.position += _cameraDirection * _camSpeed * Time.deltaTime;
+            }
+        }
+
+        if (Input.GetKeyDown("f"))
+        {
+            player.SetBehaviorIdle();
+        }
 
     }
 

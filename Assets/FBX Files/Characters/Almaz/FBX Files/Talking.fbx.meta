@@ -8,7 +8,7 @@ ModelImporter:
     second: mixamo.com
   - first:
       74: -8703035399731986702
-    second: Talking
+    second: Talking Almaz
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -39,7 +39,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Talking
+      name: Talking Almaz
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0

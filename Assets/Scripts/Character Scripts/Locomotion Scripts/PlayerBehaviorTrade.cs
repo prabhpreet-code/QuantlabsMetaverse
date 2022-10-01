@@ -12,11 +12,15 @@ public class PlayerBehaviorTrade : IPlayerBehavior
     void IPlayerBehavior.Exit(Player player)
     {
         player.animator.SetBool("isTrading", false);
+        player.isTrading = false;
     }
 
     void IPlayerBehavior.Update(Player player)
     {
-
+        if (Input.GetKeyDown("t"))
+        {
+            player.SetBehaviorIdle();
+        }
     }
 
     void IPlayerBehavior.FixedUpdate(Player player)
