@@ -20,6 +20,7 @@ public class ShopkeeperBehaviorTrade : IShopkeeperBehavior
         shopkeeper.isTrading = false;
 
         shopkeeper.transform.rotation = _initialPos;
+
     }
 
     void IShopkeeperBehavior.Update(Shopkeeper shopkeeper)

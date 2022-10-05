@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerBehaviorTrade : IPlayerBehavior
 {
-    private float _shopkeeperRange = 2f;
+    private float _shopkeeperRange = 3f;
 
     private LayerMask _shopkeeperLayer;
 
@@ -18,8 +18,11 @@ public class PlayerBehaviorTrade : IPlayerBehavior
 
         foreach (Collider shopkeeper in shopkeepers)
         {
-            currentShopkeeper = shopkeeper.gameObject;
-            break;
+            if (!shopkeeper.GetComponent<Shopkeeper>().isSeating)
+            {
+                currentShopkeeper = shopkeeper.gameObject;
+                break;
+            }
         }
 
         if (currentShopkeeper != null)

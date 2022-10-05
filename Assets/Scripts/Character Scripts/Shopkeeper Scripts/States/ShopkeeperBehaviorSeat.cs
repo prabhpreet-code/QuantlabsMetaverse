@@ -7,7 +7,7 @@ public class ShopkeeperBehaviorSeat : IShopkeeperBehavior
     private float _seatOffset = 90f;
     private LayerMask _chairLayer;
 
-    private GameObject _currentChair;
+    public GameObject _currentChair;
 
     private Vector3 _axisRotation;
 
