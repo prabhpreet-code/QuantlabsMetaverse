@@ -7,9 +7,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100000, guid: 57eb73170c197e5459e9d38cf56a40ff, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57eb73170c197e5459e9d38cf56a40ff, type: 3}
+      propertyPath: m_TagString
+      value: Chair
+      objectReference: {fileID: 0}
     - target: {fileID: 100720, guid: 57eb73170c197e5459e9d38cf56a40ff, type: 3}
       propertyPath: m_Name
-      value: Chairs
+      value: Chairs Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 400720, guid: 57eb73170c197e5459e9d38cf56a40ff, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400720, guid: 57eb73170c197e5459e9d38cf56a40ff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24,6 +36,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400720, guid: 57eb73170c197e5459e9d38cf56a40ff, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400720, guid: 57eb73170c197e5459e9d38cf56a40ff, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -33,14 +49,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400720, guid: 57eb73170c197e5459e9d38cf56a40ff, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400720, guid: 57eb73170c197e5459e9d38cf56a40ff, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400720, guid: 57eb73170c197e5459e9d38cf56a40ff, type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400720, guid: 57eb73170c197e5459e9d38cf56a40ff, type: 3}
