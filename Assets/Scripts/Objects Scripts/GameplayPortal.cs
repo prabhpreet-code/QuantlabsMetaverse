@@ -10,6 +10,7 @@ public class GameplayPortal : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         Debug.Log("HIII");
+        Debug.Log(_timeRemaining);
 
         if (other.gameObject.tag == "Player")
         {

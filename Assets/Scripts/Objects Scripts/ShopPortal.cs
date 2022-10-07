@@ -13,14 +13,14 @@ public class ShopPortal : MonoBehaviour
         Debug.Log("HIII");
 
         if (other.gameObject.tag == "Player")
-        {
+        {   Debug.Log("Player Checked");
             if (_timeRemaining > 0)
             {
                 _timeRemaining -= Time.deltaTime;
             }
             else
             {
-                SceneManager.LoadScene("Gameplay");
+                SceneManager.LoadScene("Lobby");
             }
         }
     }
