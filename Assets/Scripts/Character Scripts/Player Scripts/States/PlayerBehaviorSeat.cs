@@ -13,25 +13,44 @@ public class PlayerBehaviorSeat : IPlayerBehavior
     private Vector3 _axisRotation;
     private Vector3 _cameraMovementInput;
     private Vector3 _cameraDirection;
+    private Vector3 playerPosition;
 
     private float _turmSmoothTime = 0.1f;
     private float _turmSmoothvelocity;
 
     private LayerMask chairLayer;
+    private LayerMask cinemaChairLayer;
 
     private GameObject currentChair;
 
     void IPlayerBehavior.Enter(Player player)
     {
         chairLayer = LayerMask.GetMask("Chairs");
-
-        Collider[] chairs = Physics.OverlapSphere(player.transform.position, _seatRange, chairLayer);
+        cinemaChairLayer = LayerMask.GetMask("CinemaChairs");
+        playerPosition = player.transform.position;
+        
+        Collider[] chairs = Physics.OverlapSphere(playerPosition, _seatRange, chairLayer);
+        Collider[] cinemaChairs = Physics.OverlapSphere(playerPosition, _seatRange, cinemaChairLayer);
 
         foreach (Collider chair in chairs)
         {
             if (!chair.GetComponent<Chair>().IsBusy)
             {
                 currentChair = chair.gameObject;
+                playerPosition = currentChair.transform.position;
+                _seatOffset = 90f;
+                break;
+            }
+        }
+
+        foreach (Collider cinemaChair in cinemaChairs)
+        {
+            if (!cinemaChair.GetComponent<Chair>().IsBusy)
+            {
+                currentChair = cinemaChair.gameObject;
+                playerPosition = currentChair.transform.position;
+                playerPosition.y -= 0.6f;
+                _seatOffset = 0;
                 break;
             }
         }
@@ -50,7 +69,7 @@ public class PlayerBehaviorSeat : IPlayerBehavior
             _axisRotation.z = player.transform.eulerAngles.z;
              
             player.transform.eulerAngles = _axisRotation;
-            player.transform.position = currentChair.transform.position;
+            player.transform.position = playerPosition;
 
             _cameraInitialPos = player.cameraTarget.position;
 
