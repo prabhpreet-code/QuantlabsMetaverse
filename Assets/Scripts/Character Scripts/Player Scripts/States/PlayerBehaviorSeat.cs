@@ -32,6 +32,8 @@ public class PlayerBehaviorSeat : IPlayerBehavior
         Collider[] chairs = Physics.OverlapSphere(playerPosition, _seatRange, chairLayer);
         Collider[] cinemaChairs = Physics.OverlapSphere(playerPosition, _seatRange, cinemaChairLayer);
 
+
+        //Searching Simple Chairs
         foreach (Collider chair in chairs)
         {
             if (!chair.GetComponent<Chair>().IsBusy)
@@ -43,6 +45,7 @@ public class PlayerBehaviorSeat : IPlayerBehavior
             }
         }
 
+        //Searchin Cinema Chairs
         foreach (Collider cinemaChair in cinemaChairs)
         {
             if (!cinemaChair.GetComponent<Chair>().IsBusy)
@@ -50,6 +53,7 @@ public class PlayerBehaviorSeat : IPlayerBehavior
                 currentChair = cinemaChair.gameObject;
                 playerPosition = currentChair.transform.position;
                 playerPosition.y -= 0.6f;
+                playerPosition.z += 0.3f;
                 _seatOffset = 0;
                 break;
             }

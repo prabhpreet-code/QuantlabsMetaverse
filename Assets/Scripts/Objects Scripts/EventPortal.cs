@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ShopPortal : MonoBehaviour
+public class EventPortal : MonoBehaviour
 {
     private float portalTime = 3f;
-    private string SHOP_TAG = "Shop";
+    private string EVENT_HALL_TAG = "Cinema Hall";
     private string LOBBY_TAG = "Lobby";
 
     private void OnTriggerStay(Collider other)
@@ -21,16 +21,15 @@ public class ShopPortal : MonoBehaviour
             else
             {
 
-                if (other.GetComponent<Player>().PLAYER_LOCATION_TAG == SHOP_TAG)
+                if (other.GetComponent<Player>().PLAYER_LOCATION_TAG == EVENT_HALL_TAG)
                 {
                     SceneManager.LoadScene(LOBBY_TAG);
                     other.GetComponent<Player>().PLAYER_LOCATION_TAG = LOBBY_TAG;
                     DontDestroyOnLoad(other);
-                }
-                else
+                } else
                 {
-                    SceneManager.LoadScene(SHOP_TAG);
-                    other.GetComponent<Player>().PLAYER_LOCATION_TAG = SHOP_TAG;
+                    SceneManager.LoadScene(EVENT_HALL_TAG);
+                    other.GetComponent<Player>().PLAYER_LOCATION_TAG = EVENT_HALL_TAG;
                     DontDestroyOnLoad(other);
                 }
             }

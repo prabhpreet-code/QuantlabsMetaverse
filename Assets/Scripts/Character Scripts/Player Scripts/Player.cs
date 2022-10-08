@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public CharacterController controller;
     [HideInInspector] public Animator animator;
 
-    [HideInInspector] public Transform cam;
+    [SerializeField] public Transform cam;
     [SerializeField] public Transform cameraTarget;
 
     public Vector3 playerDirection;
@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
     [HideInInspector] public bool isSeating;
     [HideInInspector] public bool isWalking;
 
+
+    public string PLAYER_LOCATION_TAG = "Lobby";
+
     /// <summary>
     /// Loading player components
     /// </summary>
@@ -29,7 +32,6 @@ public class Player : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
-        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>();
     }
 
     /// <summary>
