@@ -118,10 +118,10 @@ public class PlayerBehaviorSeat : IPlayerBehavior
 
                 if (player.cam.rotation.x < 0)
                 {
-                    _cameraDirection.y += 7 * Time.deltaTime;
+                    _cameraDirection.y += 12 * Time.deltaTime;
                 } else
                 {
-                    _cameraDirection.y -= 7 * Time.deltaTime;
+                    _cameraDirection.y -= 12 * Time.deltaTime;
                 }
 
                 player.cameraTarget.position += _cameraDirection * _camSpeed * Time.deltaTime;
