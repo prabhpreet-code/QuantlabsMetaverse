@@ -2141,7 +2141,7 @@ GameObject:
   - component: {fileID: 4776465271568115550}
   m_Layer: 0
   m_Name: PlayerOne
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2187,7 +2187,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 1cae4cdb4fb4f4e55afb78301f4e2124, type: 3}
   m_Controller: {fileID: 9100000, guid: c8c94c26fe414452483d3b94531cf5bb, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -2206,7 +2206,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.85
+  m_Height: 1.9
   m_Radius: 0.2
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -3202,8 +3202,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6391330949094168655}
   - component: {fileID: 6391330949094168648}
+  - component: {fileID: 7050109949509683530}
   m_Layer: 0
-  m_Name: Player Cam
+  m_Name: Player One Cinemachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3217,7 +3218,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6391330949094168654}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.386, z: -4}
+  m_LocalPosition: {x: 0, y: 1.399, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3331,6 +3332,36 @@ MonoBehaviour:
   - {fileID: 6391330949450558041}
   - {fileID: 6391330948624222176}
   - {fileID: 6391330949527054075}
+--- !u!114 &7050109949509683530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6391330949094168654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CollideAgainst:
+    serializedVersion: 2
+    m_Bits: 1
+  m_IgnoreTag: 
+  m_TransparentLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_MinimumDistanceFromTarget: 0.1
+  m_AvoidObstacles: 1
+  m_DistanceLimit: 0
+  m_MinimumOcclusionTime: 0
+  m_CameraRadius: 0.1
+  m_Strategy: 1
+  m_MaximumEffort: 4
+  m_SmoothingTime: 0.1
+  m_Damping: 0
+  m_DampingWhenOccluded: 0
+  m_OptimalTargetDistance: 0
 --- !u!1 &6391330949450558047
 GameObject:
   m_ObjectHideFlags: 3
@@ -3624,7 +3655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6391330950045115771}
   m_Layer: 0
-  m_Name: Player Cam Target
+  m_Name: Player One Cam Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3638,7 +3669,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6391330950045115770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.386, z: 0}
+  m_LocalPosition: {x: 0, y: 1.399, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3658,7 +3689,7 @@ GameObject:
   - component: {fileID: 6391330950386475835}
   - component: {fileID: 6391330950386475834}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Player One Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3672,7 +3703,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6391330950386475832}
   m_LocalRotation: {x: -0.018189494, y: 0.00000004213988, z: 7.6662987e-10, w: 0.9998346}
-  m_LocalPosition: {x: 0, y: 1.386, z: -4}
+  m_LocalPosition: {x: 0, y: 1.399, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

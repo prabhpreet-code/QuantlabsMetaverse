@@ -102,30 +102,9 @@ public class PlayerBehaviorSeat : IPlayerBehavior
 
     void IPlayerBehavior.Update(Player player)
     {
-        if (currentChair != null)
+        if (currentChair != null && player.PLAYER_LOCATION_TAG == "Cinema Hall")
         {
-            _cameraMovementInput.x = Input.GetAxis("Horizontal");
-            _cameraMovementInput.z = Input.GetAxis("Vertical");
-
-            if (_cameraMovementInput.magnitude > 0)
-            {
-                float targetAngle = Mathf.Atan2(_cameraMovementInput.x, _cameraMovementInput.z) * Mathf.Rad2Deg + player.cam.eulerAngles.y;
-                float angle = Mathf.SmoothDampAngle(player.transform.eulerAngles.y, targetAngle, ref _turmSmoothvelocity, _turmSmoothTime);
-
-                player.cameraTarget.rotation = Quaternion.Euler(0f, angle, 0f);
-
-                _cameraDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-
-                if (player.cam.rotation.x < 0)
-                {
-                    _cameraDirection.y += 12 * Time.deltaTime;
-                } else
-                {
-                    _cameraDirection.y -= 12 * Time.deltaTime;
-                }
-
-                player.cameraTarget.position += _cameraDirection * _camSpeed * Time.deltaTime;
-            }
+            player.cameraTarget.position = new Vector3(0,5.5f,4.5f);
         }
 
         if (Input.GetKeyDown("f"))

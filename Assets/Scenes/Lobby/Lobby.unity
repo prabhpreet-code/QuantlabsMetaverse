@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24397132, g: 0.24989644, b: 0.25224978, a: 1}
+  m_IndirectSpecularColor: {r: 0.24618718, g: 0.2519202, b: 0.25410467, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2497,7 +2497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 2093251724}
-  almazPrefab: {fileID: 2421360513004525190, guid: 700c4346d6bc944edb95e3e960115fe3, type: 3}
+  almazPrefab: {fileID: 4776465271568115549, guid: c9e48f6a4fd90422c9a9703fd6969532, type: 3}
 --- !u!4 &256778075
 Transform:
   m_ObjectHideFlags: 0
