@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     private Dictionary<Type, IPlayerBehavior> behaviorsMap;
     private IPlayerBehavior behaviourCurrent;
+    public InterfaceManager interfaceManager;
 
     [HideInInspector] public CharacterController controller;
     [HideInInspector] public Animator animator;
@@ -29,6 +30,11 @@ public class Player : MonoBehaviour
     /// Loading player components
     /// </summary>
     private void Awake()
+    {
+        LoadComponents();
+    }
+
+    private void LoadComponents()
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
@@ -56,10 +62,10 @@ public class Player : MonoBehaviour
     private void SetBehavior(IPlayerBehavior newBehavior)
     {
         if (this.behaviourCurrent != null)
-            this.behaviourCurrent.Exit(this);
+            this.behaviourCurrent.Exit(this, this.interfaceManager);
 
         this.behaviourCurrent = newBehavior;
-        this.behaviourCurrent.Enter(this);
+        this.behaviourCurrent.Enter(this, this.interfaceManager);
     }
 
     private void SetBehaviorByDefault()
@@ -79,7 +85,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         if (this.behaviourCurrent != null)
-            this.behaviourCurrent.Update(this);
+            this.behaviourCurrent.Update(this, this.interfaceManager);
     }
 
     /// <summary>
@@ -88,7 +94,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         if (this.behaviourCurrent != null)
-            this.behaviourCurrent.FixedUpdate(this);
+            this.behaviourCurrent.FixedUpdate(this, this.interfaceManager);
     }
 
     public void SetBehaviorIdle()

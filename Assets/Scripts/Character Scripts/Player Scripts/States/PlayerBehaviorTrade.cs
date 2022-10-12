@@ -10,7 +10,7 @@ public class PlayerBehaviorTrade : IPlayerBehavior
 
     private GameObject currentShopkeeper;
 
-    void IPlayerBehavior.Enter(Player player)
+    void IPlayerBehavior.Enter(Player player, InterfaceManager interfaceManager)
     {
         _shopkeeperLayer = LayerMask.GetMask("Shopkeepers");
 
@@ -38,13 +38,17 @@ public class PlayerBehaviorTrade : IPlayerBehavior
             //Rotating shopkeeper towards player
             currentShopkeeper.transform.LookAt(player.transform.position);
 
+            //Managing UI
+            interfaceManager.inventoryPanel.SetActive(true);
+            interfaceManager.shopPanel.SetActive(true);
+
         } else
         {
             player.SetBehaviorIdle();
         }
     }
 
-    void IPlayerBehavior.Exit(Player player)
+    void IPlayerBehavior.Exit(Player player, InterfaceManager interfaceManager)
     {
         if (currentShopkeeper != null)
         {
@@ -54,11 +58,15 @@ public class PlayerBehaviorTrade : IPlayerBehavior
 
             currentShopkeeper.GetComponent<Shopkeeper>().SetBehaviorIdle();
             currentShopkeeper = null;
+
+            //Managing UI
+            interfaceManager.inventoryPanel.SetActive(false);
+            interfaceManager.shopPanel.SetActive(false);
         }
         
     }
 
-    void IPlayerBehavior.Update(Player player)
+    void IPlayerBehavior.Update(Player player, InterfaceManager interfaceManager)
     {
         if (Input.GetKeyDown("t") || Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
@@ -66,7 +74,7 @@ public class PlayerBehaviorTrade : IPlayerBehavior
         }
     }
 
-    void IPlayerBehavior.FixedUpdate(Player player)
+    void IPlayerBehavior.FixedUpdate(Player player, InterfaceManager interfaceManager)
     {
         
     }

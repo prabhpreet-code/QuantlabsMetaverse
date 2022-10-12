@@ -4,8 +4,8 @@ using UnityEngine;
 
 public interface IPlayerBehavior
 {
-    void Enter(Player player);
-    void Exit(Player player);
-    void Update(Player player);
-    void FixedUpdate(Player player);
+    void Enter(Player player, InterfaceManager interfaceManager);
+    void Exit(Player player, InterfaceManager interfaceManager);
+    void Update(Player player, InterfaceManager interfaceManager);
+    void FixedUpdate(Player player, InterfaceManager interfaceManager);
 }

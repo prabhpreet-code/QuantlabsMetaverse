@@ -23,7 +23,7 @@ public class PlayerBehaviorSeat : IPlayerBehavior
 
     private GameObject currentChair;
 
-    void IPlayerBehavior.Enter(Player player)
+    void IPlayerBehavior.Enter(Player player, InterfaceManager interfaceManager)
     {
         chairLayer = LayerMask.GetMask("Chairs");
         cinemaChairLayer = LayerMask.GetMask("CinemaChairs");
@@ -84,7 +84,7 @@ public class PlayerBehaviorSeat : IPlayerBehavior
         
     }
 
-    void IPlayerBehavior.Exit(Player player)
+    void IPlayerBehavior.Exit(Player player, InterfaceManager interfaceManager)
     {
         if (currentChair != null)
         {
@@ -100,7 +100,7 @@ public class PlayerBehaviorSeat : IPlayerBehavior
         }
     }
 
-    void IPlayerBehavior.Update(Player player)
+    void IPlayerBehavior.Update(Player player, InterfaceManager interfaceManager)
     {
         if (currentChair != null && player.PLAYER_LOCATION_TAG == "Cinema Hall")
         {
@@ -114,7 +114,7 @@ public class PlayerBehaviorSeat : IPlayerBehavior
 
     }
 
-    void IPlayerBehavior.FixedUpdate(Player player)
+    void IPlayerBehavior.FixedUpdate(Player player, InterfaceManager interfaceManager)
     {
 
     }

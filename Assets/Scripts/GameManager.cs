@@ -15,6 +15,6 @@ public class GameManager : MonoBehaviour
         {
             currentPlayer = almazPrefab;
             Instantiate(currentPlayer, spawnPoint.position, Quaternion.identity);
-        }   
+        }
     }
 }

@@ -19,18 +19,18 @@ public class PlayerBehaviorMove : IPlayerBehavior
     private string WALKING_TAG = "isWalking";
     private string JUMPING_TAG = "isJumping";
 
-    void IPlayerBehavior.Enter(Player player)
+    void IPlayerBehavior.Enter(Player player, InterfaceManager interfaceManager)
     {
         player.animator.SetBool(WALKING_TAG, true);
     }
 
-    void IPlayerBehavior.Exit(Player player)
+    void IPlayerBehavior.Exit(Player player, InterfaceManager interfaceManager)
     {
         player.animator.SetBool(WALKING_TAG, false);
         player.animator.SetBool(JUMPING_TAG, false);
     }
 
-    void IPlayerBehavior.Update(Player player)
+    void IPlayerBehavior.Update(Player player, InterfaceManager interfaceManager)
     {
         _playerMoveInput.x = Input.GetAxis("Horizontal");
         _playerMoveInput.z = Input.GetAxis("Vertical");
@@ -44,7 +44,7 @@ public class PlayerBehaviorMove : IPlayerBehavior
         if (_playerMoveInput.magnitude == 0) player.SetBehaviorIdle();
     }
 
-    void IPlayerBehavior.FixedUpdate(Player player)
+    void IPlayerBehavior.FixedUpdate(Player player, InterfaceManager interfaceManager)
     {
         float targetAngle = Mathf.Atan2(_playerMoveInput.x, _playerMoveInput.z) * Mathf.Rad2Deg + player.cam.eulerAngles.y;
         float angle = Mathf.SmoothDampAngle(player.transform.eulerAngles.y, targetAngle, ref _turmSmoothvelocity, _turmSmoothTime);
