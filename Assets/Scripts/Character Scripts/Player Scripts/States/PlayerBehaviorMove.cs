@@ -9,7 +9,7 @@ public class PlayerBehaviorMove : IPlayerBehavior
     private float _turmSmoothvelocity;
 
     private float _walkSpeed = 4f;
-    private float _jumpHeight = 2f;
+    private float _jumpHeight = 1.5f;
 
     private Vector3 _playerMoveInput;
     private Vector3 _playerDirection;
@@ -52,10 +52,10 @@ public class PlayerBehaviorMove : IPlayerBehavior
 
         if (player.controller.isGrounded && !_playerJumped)
         {
-            player.playerDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            player.playerDirection *= _walkSpeed;
 
             player.animator.SetBool(JUMPING_TAG, false);
+            player.playerDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            player.playerDirection *= _walkSpeed;
 
         } else if (player.controller.isGrounded && _playerJumped)
         {
