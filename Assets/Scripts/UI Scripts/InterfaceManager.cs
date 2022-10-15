@@ -11,20 +11,6 @@ public class InterfaceManager : MonoBehaviour
 
     private void Awake()
     {
-        LoadUI();
-    }
 
-    private void LoadUI()
-    {
-        inventoryButton.onClick.AddListener(LoadInventory);
-    }
-
-    public void LoadInventory()
-    {
-        if (inventoryPanel.activeInHierarchy)
-        {
-            inventoryPanel.SetActive(false);
-        }
-        else inventoryPanel.SetActive(true);
     }
 }
