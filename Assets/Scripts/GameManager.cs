@@ -5,7 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Transform spawnPoint;
-    [SerializeField] private GameObject almazPrefab;
+    [SerializeField] private GameObject[] characters;
+
+    [SerializeField] public static int avatarNum { get; set; }
 
     public static GameObject currentPlayer;
 
@@ -13,8 +15,11 @@ public class GameManager : MonoBehaviour
     {
         if (currentPlayer == null)
         {
-            currentPlayer = almazPrefab;
+            currentPlayer = characters[avatarNum];
             Instantiate(currentPlayer, spawnPoint.position, Quaternion.identity);
         }
     }
+
+
+
 }

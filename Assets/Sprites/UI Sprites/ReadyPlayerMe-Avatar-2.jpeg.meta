@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 974afe53e38ea4b7da86b1d989fb6363
+guid: 3f1b5dc677d2a475a92e4c0dd293e0a7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -39,21 +39,21 @@ TextureImporter:
     wrapU: 0
     wrapV: 0
     wrapW: 0
-  nPOTScale: 0
+  nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 0
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 10, y: 11, z: 8, w: 10}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 0
-  spriteTessellationDetail: 0
-  textureType: 8
+  spriteTessellationDetail: -1
+  textureType: 0
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -140,52 +140,11 @@ TextureImporter:
   spriteSheet:
     serializedVersion: 2
     sprites: []
-    outline:
-    - - {x: -333, y: 500}
-      - {x: -341, y: 498}
-      - {x: -347, y: 496}
-      - {x: -353, y: 492}
-      - {x: -358, y: 489}
-      - {x: -362, y: 485}
-      - {x: -366, y: 480}
-      - {x: -369, y: 475}
-      - {x: -372, y: 469}
-      - {x: -375, y: 458}
-      - {x: -375, y: -457}
-      - {x: -374, y: -462}
-      - {x: -373, y: -466}
-      - {x: -371, y: -471}
-      - {x: -369, y: -475}
-      - {x: -366, y: -479}
-      - {x: -363, y: -483}
-      - {x: -359, y: -487}
-      - {x: -353, y: -492}
-      - {x: -347, y: -495}
-      - {x: -340, y: -498}
-      - {x: -333, y: -500}
-      - {x: 330, y: -500}
-      - {x: 342, y: -498}
-      - {x: 351, y: -494}
-      - {x: 360, y: -486}
-      - {x: 365, y: -481}
-      - {x: 370, y: -473}
-      - {x: 372, y: -467}
-      - {x: 374, y: -463}
-      - {x: 375, y: -457}
-      - {x: 375, y: 455.68445}
-      - {x: 374, y: 464}
-      - {x: 371, y: 471}
-      - {x: 367, y: 478}
-      - {x: 362, y: 484}
-      - {x: 356, y: 489}
-      - {x: 351, y: 493}
-      - {x: 344, y: 497}
-      - {x: 337, y: 499}
-      - {x: 331, y: 500}
+    outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []

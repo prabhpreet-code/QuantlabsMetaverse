@@ -2591,7 +2591,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 2093251724}
-  almazPrefab: {fileID: 4776465271568115549, guid: c9e48f6a4fd90422c9a9703fd6969532, type: 3}
+  characters:
+  - {fileID: 4776465271568115549, guid: c9e48f6a4fd90422c9a9703fd6969532, type: 3}
+  - {fileID: 8462139751366899264, guid: 2e955760bbdd841a5af1aa43b89224a5, type: 3}
+  - {fileID: 1128261082523770235, guid: 72015bde52c844b33a6dcdce5ad5cb40, type: 3}
+  avatarNum: 0
 --- !u!4 &256778075
 Transform:
   m_ObjectHideFlags: 0
