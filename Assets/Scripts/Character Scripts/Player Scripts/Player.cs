@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Player : MonoBehaviour
 {
@@ -23,8 +24,10 @@ public class Player : MonoBehaviour
     [HideInInspector] public bool isSeating;
     [HideInInspector] public bool isWalking;
 
-
     public string PLAYER_LOCATION_TAG = "Lobby";
+
+    //Photon Component
+    PhotonView view;
 
     /// <summary>
     /// Loading player components
@@ -36,8 +39,15 @@ public class Player : MonoBehaviour
 
     private void LoadComponents()
     {
-        controller = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
+        view = GetComponent<PhotonView>();
+
+        if (view.IsMine)
+        {
+            controller = GetComponent<CharacterController>();
+            animator = GetComponent<Animator>();
+            cam = GameObject.FindWithTag("MainCamera").transform;
+        }
+            
     }
 
     /// <summary>
@@ -45,8 +55,11 @@ public class Player : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        this.InitBehaviors();
-        this.SetBehaviorByDefault();
+        if (view.IsMine)
+        {
+            this.InitBehaviors();
+            this.SetBehaviorByDefault();
+        }
     }
 
     private void InitBehaviors()
@@ -84,8 +97,11 @@ public class Player : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        if (this.behaviourCurrent != null)
-            this.behaviourCurrent.Update(this, this.interfaceManager);
+        if (view.IsMine)
+        {
+            if (this.behaviourCurrent != null)
+                this.behaviourCurrent.Update(this, this.interfaceManager);
+        }
     }
 
     /// <summary>
@@ -93,8 +109,11 @@ public class Player : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
-        if (this.behaviourCurrent != null)
-            this.behaviourCurrent.FixedUpdate(this, this.interfaceManager);
+        if (view.IsMine)
+        {
+            if (this.behaviourCurrent != null)
+                this.behaviourCurrent.FixedUpdate(this, this.interfaceManager);
+        }
     }
 
     public void SetBehaviorIdle()

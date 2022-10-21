@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,13 +24,13 @@ public class ShopPortal : MonoBehaviour
 
                 if (other.GetComponent<Player>().PLAYER_LOCATION_TAG == SHOP_TAG)
                 {
-                    SceneManager.LoadScene(LOBBY_TAG);
+                    PhotonNetwork.LoadLevel(LOBBY_TAG);
                     other.GetComponent<Player>().PLAYER_LOCATION_TAG = LOBBY_TAG;
                     DontDestroyOnLoad(other);
                 }
                 else
                 {
-                    SceneManager.LoadScene(SHOP_TAG);
+                    PhotonNetwork.LoadLevel(SHOP_TAG);
                     other.GetComponent<Player>().PLAYER_LOCATION_TAG = SHOP_TAG;
                     DontDestroyOnLoad(other);
                 }

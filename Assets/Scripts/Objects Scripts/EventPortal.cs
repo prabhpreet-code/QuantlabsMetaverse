@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,26 +14,33 @@ public class EventPortal : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-
-            if (portalTime > 0)
+            if (PhotonNetwork.IsMasterClient)
             {
-                portalTime -= Time.deltaTime;
-            }
-            else
-            {
-
-                if (other.GetComponent<Player>().PLAYER_LOCATION_TAG == EVENT_HALL_TAG)
+                if (portalTime > 0)
                 {
-                    SceneManager.LoadScene(LOBBY_TAG);
-                    other.GetComponent<Player>().PLAYER_LOCATION_TAG = LOBBY_TAG;
-                    DontDestroyOnLoad(other);
-                } else
+                    portalTime -= Time.deltaTime;
+                }
+                else
                 {
-                    SceneManager.LoadScene(EVENT_HALL_TAG);
-                    other.GetComponent<Player>().PLAYER_LOCATION_TAG = EVENT_HALL_TAG;
-                    DontDestroyOnLoad(other);
+                    if (other.GetComponent<Player>().PLAYER_LOCATION_TAG == EVENT_HALL_TAG)
+                    {
+                        PhotonNetwork.LoadLevel(LOBBY_TAG);
+                        other.GetComponent<Player>().PLAYER_LOCATION_TAG = LOBBY_TAG;
+                        other.GetComponent<Player>().cam = GameObject.FindWithTag("MainCamera").transform;
+                        DontDestroyOnLoad(other);
+                        Destroy(this);
+                    }
+                    else
+                    {
+                        PhotonNetwork.LoadLevel(EVENT_HALL_TAG);
+                        other.GetComponent<Player>().PLAYER_LOCATION_TAG = EVENT_HALL_TAG;
+                        other.GetComponent<Player>().cam = GameObject.FindWithTag("MainCamera").transform;
+                        DontDestroyOnLoad(other);
+                        Destroy(this);
+                    }
                 }
             }
+            
         }
     }
 }
