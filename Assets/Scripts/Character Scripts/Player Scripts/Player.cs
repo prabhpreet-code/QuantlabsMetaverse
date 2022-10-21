@@ -40,14 +40,10 @@ public class Player : MonoBehaviour
     private void LoadComponents()
     {
         view = GetComponent<PhotonView>();
+        controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
+        cam = GameObject.FindWithTag("MainCamera").transform;
 
-        if (view.IsMine)
-        {
-            controller = GetComponent<CharacterController>();
-            animator = GetComponent<Animator>();
-            cam = GameObject.FindWithTag("MainCamera").transform;
-        }
-            
     }
 
     /// <summary>

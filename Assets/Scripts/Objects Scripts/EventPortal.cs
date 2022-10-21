@@ -26,7 +26,7 @@ public class EventPortal : MonoBehaviour
                     {
                         PhotonNetwork.LoadLevel(LOBBY_TAG);
                         other.GetComponent<Player>().PLAYER_LOCATION_TAG = LOBBY_TAG;
-                        other.GetComponent<Player>().cam = GameObject.FindWithTag("MainCamera").transform;
+                        
                         DontDestroyOnLoad(other);
                         Destroy(this);
                     }
@@ -34,7 +34,7 @@ public class EventPortal : MonoBehaviour
                     {
                         PhotonNetwork.LoadLevel(EVENT_HALL_TAG);
                         other.GetComponent<Player>().PLAYER_LOCATION_TAG = EVENT_HALL_TAG;
-                        other.GetComponent<Player>().cam = GameObject.FindWithTag("MainCamera").transform;
+                        
                         DontDestroyOnLoad(other);
                         Destroy(this);
                     }
