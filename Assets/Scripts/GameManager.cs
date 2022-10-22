@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject[] characters;
     [SerializeField] private CinemachineFreeLook cinemachineCamera;
+    [SerializeField] private Camera mainCam;
 
     [SerializeField] public static int avatarNum { get; set; }
 
@@ -31,6 +32,8 @@ public class GameManager : MonoBehaviour
             //Instantiating cinemachine camera and setting as a child object
             var cinemachine = PhotonNetwork.Instantiate(cinemachineCamera.name, spawnPoint.position, Quaternion.identity);
             cinemachine.transform.parent = playerObj.transform;
+
+            mainCam.transform.parent = playerObj.transform;
         }
     }
 }

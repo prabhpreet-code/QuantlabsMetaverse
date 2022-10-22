@@ -42,6 +42,8 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     {
         Debug.Log("Joined Lobby");
 
+        PhotonNetwork.AutomaticallySyncScene = true;
+
         login_button.GetComponentInChildren<Text>().text = "Joined";
         CreateRoom();
     }

@@ -25,18 +25,16 @@ public class EventPortal : MonoBehaviour
                     if (other.GetComponent<Player>().PLAYER_LOCATION_TAG == EVENT_HALL_TAG)
                     {
                         PhotonNetwork.LoadLevel(LOBBY_TAG);
-                        other.GetComponent<Player>().PLAYER_LOCATION_TAG = LOBBY_TAG;
                         
+                        other.GetComponent<Player>().PLAYER_LOCATION_TAG = LOBBY_TAG;
                         DontDestroyOnLoad(other);
-                        Destroy(this);
                     }
                     else
                     {
                         PhotonNetwork.LoadLevel(EVENT_HALL_TAG);
+
                         other.GetComponent<Player>().PLAYER_LOCATION_TAG = EVENT_HALL_TAG;
-                        
                         DontDestroyOnLoad(other);
-                        Destroy(this);
                     }
                 }
             }
