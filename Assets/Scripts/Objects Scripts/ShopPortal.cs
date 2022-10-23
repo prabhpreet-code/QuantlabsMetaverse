@@ -4,7 +4,7 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ShopPortal : MonoBehaviour
+public class ShopPortal : MonoBehaviourPunCallbacks
 {
     private float portalTime = 3f;
     private string SHOP_TAG = "Shop";
@@ -12,29 +12,30 @@ public class ShopPortal : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (photonView.IsMine)
         {
-
-            if (portalTime > 0)
+            if (other.gameObject.tag == "Player")
             {
-                portalTime -= Time.deltaTime;
-            }
-            else
-            {
-
-                if (other.GetComponent<Player>().PLAYER_LOCATION_TAG == SHOP_TAG)
+                if (portalTime > 0)
                 {
-                    PhotonNetwork.LoadLevel(LOBBY_TAG);
-                    other.GetComponent<Player>().PLAYER_LOCATION_TAG = LOBBY_TAG;
-                    DontDestroyOnLoad(other);
+                    portalTime -= Time.deltaTime;
                 }
                 else
                 {
-                    PhotonNetwork.LoadLevel(SHOP_TAG);
-                    other.GetComponent<Player>().PLAYER_LOCATION_TAG = SHOP_TAG;
-                    DontDestroyOnLoad(other);
+                    if (other.GetComponent<Player>().PLAYER_LOCATION_TAG == SHOP_TAG)
+                    {
+                        other.GetComponent<Player>().PLAYER_LOCATION_TAG = LOBBY_TAG;
+                        PhotonNetwork.LoadLevel(LOBBY_TAG);
+                    }
+                    else
+                    {
+
+                        other.GetComponent<Player>().PLAYER_LOCATION_TAG = SHOP_TAG;
+                        PhotonNetwork.LoadLevel(SHOP_TAG);
+                    }
                 }
             }
         }
+        
     }
 }

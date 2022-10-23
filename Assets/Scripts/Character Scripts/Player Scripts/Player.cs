@@ -42,8 +42,6 @@ public class Player : MonoBehaviour
         view = GetComponent<PhotonView>();
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
-        cam = GameObject.FindWithTag("MainCamera").transform;
-
     }
 
     /// <summary>
@@ -134,6 +132,11 @@ public class Player : MonoBehaviour
     {
         var behavior = this.GetBehavior<PlayerBehaviorSeat>();
         this.SetBehavior(behavior);
+    }
+
+    public void OnLevelWasLoaded(int level)
+    {
+        cam = GameObject.FindWithTag("MainCamera").transform;
     }
 
 }

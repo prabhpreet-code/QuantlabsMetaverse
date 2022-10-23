@@ -11,7 +11,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     [SerializeField] private Button login_button;
 
     
-    private string ROOM_TAG = "CurrentRoom";
+    private string LOBBY_ROOM_TAG = "CurrentRoom";
 
     private void Awake()
     {
@@ -35,6 +35,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     {
         Debug.Log("Joined Master");
 
+        PhotonNetwork.AutomaticallySyncScene = false;
         PhotonNetwork.JoinLobby();
     }
 
@@ -42,9 +43,8 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     {
         Debug.Log("Joined Lobby");
 
-        PhotonNetwork.AutomaticallySyncScene = true;
-
         login_button.GetComponentInChildren<Text>().text = "Joined";
+
         CreateRoom();
     }
 
@@ -52,10 +52,11 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.CountOfRooms < 1)
         {
-            PhotonNetwork.CreateRoom(ROOM_TAG);
+            PhotonNetwork.CreateRoom(LOBBY_ROOM_TAG);
+
         } else if (PhotonNetwork.CountOfRooms > 0)
         {
-            PhotonNetwork.JoinRoom(ROOM_TAG);
+            PhotonNetwork.JoinRoom(LOBBY_ROOM_TAG);
         }
     }
 
