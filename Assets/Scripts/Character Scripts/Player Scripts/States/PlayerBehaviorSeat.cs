@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class PlayerBehaviorSeat : IPlayerBehavior
 {
@@ -102,7 +103,7 @@ public class PlayerBehaviorSeat : IPlayerBehavior
 
     void IPlayerBehavior.Update(Player player, InterfaceManager interfaceManager)
     {
-        if (currentChair != null && player.PLAYER_LOCATION_TAG == "Cinema Hall")
+        if (currentChair != null && SceneManager.GetActiveScene().name == "Cinema Hall")
         {
             player.cameraTarget.position = new Vector3(0,5.5f,4.5f);
         }

@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public static GameObject currentPlayer;
 
-    private void OnEnable()
+    private void Awake()
     {
         CreateCharacter();
     }
@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             //Instantiating cinemachine camera and setting as a child object
             var cinemachine = PhotonNetwork.Instantiate(cinemachineCamera.name, lobbySpawnPoint.position, Quaternion.identity);
             cinemachine.transform.parent = playerObj.transform;
+
+            DontDestroyOnLoad(playerObj);
         }
     }
 }

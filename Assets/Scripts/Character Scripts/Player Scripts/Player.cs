@@ -136,7 +136,8 @@ public class Player : MonoBehaviour
 
     public void OnLevelWasLoaded(int level)
     {
-        cam = GameObject.FindWithTag("MainCamera").transform;
+        if (view.IsMine)
+            cam = GameObject.FindWithTag("MainCamera").transform;
     }
 
 }
