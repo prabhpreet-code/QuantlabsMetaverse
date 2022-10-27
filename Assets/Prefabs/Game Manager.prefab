@@ -48,8 +48,8 @@ MonoBehaviour:
   lobbySpawnPoint: {fileID: 8372185105663533105}
   characters:
   - {fileID: 4776465271568115549, guid: c9e48f6a4fd90422c9a9703fd6969532, type: 3}
-  - {fileID: 1128261082523770235, guid: 72015bde52c844b33a6dcdce5ad5cb40, type: 3}
   - {fileID: 8462139751366899264, guid: 2e955760bbdd841a5af1aa43b89224a5, type: 3}
+  - {fileID: 1128261082523770235, guid: 72015bde52c844b33a6dcdce5ad5cb40, type: 3}
   cinemachineCamera: {fileID: 4241218509968998779, guid: c4cd11d07c3314878be332d15903a55e, type: 3}
   cam: {fileID: 0}
 --- !u!1 &8372185105663533110
@@ -76,7 +76,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8372185105663533110}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.7, z: 10.319}
+  m_LocalPosition: {x: 0, y: 1.4, z: 10.319}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

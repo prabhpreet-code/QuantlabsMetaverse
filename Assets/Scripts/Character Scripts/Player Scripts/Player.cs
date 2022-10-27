@@ -53,8 +53,6 @@ public class Player : MonoBehaviour
         {
             this.InitBehaviors();
             this.SetBehaviorByDefault();
-
-            DontDestroyOnLoad(this.gameObject);
         }
     }
 

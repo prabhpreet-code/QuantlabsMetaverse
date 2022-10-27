@@ -222,7 +222,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 27112162}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 63914530}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &27112162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2207,7 +2219,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0777a219410f4dab8d8c28cd2661623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  login_button: {fileID: 27112161}
+  selectionPanel: {fileID: 63914530}
+  characterSelect:
+  - {fileID: 40844388}
+  - {fileID: 177336637}
+  - {fileID: 1443997856}
 --- !u!4 &1645201308
 Transform:
   m_ObjectHideFlags: 0
@@ -2235,7 +2251,6 @@ GameObject:
   - component: {fileID: 1679130272}
   - component: {fileID: 1679130271}
   - component: {fileID: 1679130270}
-  - component: {fileID: 1679130274}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -2292,7 +2307,7 @@ Canvas:
   m_GameObject: {fileID: 1679130269}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 1319467773}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -2327,23 +2342,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1679130274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1679130269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c30710678e6f14b93ba4153a67a9599d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterSelectButton:
-  - {fileID: 40844388}
-  - {fileID: 177336637}
-  - {fileID: 1443997856}
-  sceneName: Lobby
 --- !u!1 &1857345276
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,11 @@ using UnityEngine.SceneManagement;
 
 public class ConnectToServer : MonoBehaviourPunCallbacks
 {
-    [SerializeField] private Button login_button;
+    [SerializeField] private GameObject selectionPanel;
+
+    [SerializeField] private Button[] characterSelect;
+
+    private Button selectedButton;
 
     private void Awake()
     {
@@ -18,15 +22,36 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 
     private void SetupCanvas()
     {
-        login_button.onClick.AddListener(ConnectToMaster);
+        characterSelect[0].onClick.AddListener(LoadFirst);
+        characterSelect[1].onClick.AddListener(LoadSecond);
+        characterSelect[2].onClick.AddListener(LoadThird);
+    }
+
+    private void LoadFirst()
+    {
+        GameManager.avatarNum = 0;
+        selectedButton = characterSelect[0]; 
+        ConnectToMaster();
+    }
+
+    private void LoadSecond()
+    {
+        GameManager.avatarNum = 1;
+        selectedButton= characterSelect[1];
+        ConnectToMaster();
+    }
+
+    private void LoadThird()
+    {
+        GameManager.avatarNum = 2;
+        selectedButton = characterSelect[2];
+        ConnectToMaster();
     }
 
     public void ConnectToMaster()
     {
         Debug.Log("Connecting to Master");
-
-        login_button.GetComponentInChildren<Text>().text = "Loading";
-
+        selectedButton.GetComponentInChildren<Text>().text = "Loading";
         PhotonNetwork.ConnectUsingSettings();
     }
 
@@ -36,17 +61,14 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 
         PhotonNetwork.AutomaticallySyncScene = false;
 
+        selectionPanel.SetActive(true);
+
         PhotonNetwork.JoinLobby();
     }
 
     public override void OnJoinedLobby()
     {
-        Debug.Log("Joined Lobby");
-
-        login_button.GetComponentInChildren<Text>().text = "Joined";
-
-        Debug.Log("Joined Room");
-
+        selectedButton.GetComponentInChildren<Text>().text = "Joined";
         PhotonNetwork.JoinRoom("LobbyRoom");
     }
 
