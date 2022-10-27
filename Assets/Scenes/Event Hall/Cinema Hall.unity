@@ -9266,6 +9266,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 8372185103827092452, guid: 63611f7fff21644ad912ba9c7f3f9267, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8372185103827092454, guid: 63611f7fff21644ad912ba9c7f3f9267, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -9314,6 +9318,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 754160788}
+    - target: {fileID: 8372185105663533105, guid: 63611f7fff21644ad912ba9c7f3f9267, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63611f7fff21644ad912ba9c7f3f9267, type: 3}
 --- !u!1001 &1601076629

@@ -38,8 +38,6 @@ public class GameManager : MonoBehaviourPunCallbacks
             //Instantiating cinemachine camera and setting as a child object
             var cinemachine = PhotonNetwork.Instantiate(cinemachineCamera.name, lobbySpawnPoint.position, Quaternion.identity);
             cinemachine.transform.parent = playerObj.transform;
-
-            DontDestroyOnLoad(playerObj);
         }
     }
 }

@@ -33,7 +33,9 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log("Joined Master");
-        PhotonNetwork.AutomaticallySyncScene = true;
+
+        PhotonNetwork.AutomaticallySyncScene = false;
+
         PhotonNetwork.JoinLobby();
     }
 
@@ -45,9 +47,13 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 
         Debug.Log("Joined Room");
 
-        //Creating Lobby Room
-        if (PhotonNetwork.CountOfRooms == 0) PhotonNetwork.CreateRoom("LobbyRoom");
-        else PhotonNetwork.JoinRoom("LobbyRoom");
+        PhotonNetwork.JoinRoom("LobbyRoom");
+    }
+
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        base.OnJoinRoomFailed(returnCode, message);
+        PhotonNetwork.CreateRoom("LobbyRoom");
     }
 
     public override void OnJoinedRoom()
