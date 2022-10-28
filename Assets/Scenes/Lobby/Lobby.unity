@@ -2713,6 +2713,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7512659309040508989, guid: 92eb700d38a53494d9a7e113ed2f33fe, type: 3}
   m_PrefabInstance: {fileID: 264948892}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &265175160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 265175162}
+  - component: {fileID: 265175161}
+  m_Layer: 0
+  m_Name: ConnectionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &265175161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265175160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa03aae2793964e818f4fdb2ca81a61f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &265175162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265175160}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -50.44224, y: -23.42978, z: 16.695677}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &273499517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29429,7 +29473,6 @@ GameObject:
   - component: {fileID: 2920418779944566846}
   - component: {fileID: 58}
   - component: {fileID: 3983115354762550905}
-  - component: {fileID: 3983115354762550906}
   m_Layer: 0
   m_Name: Shop Portal
   m_TagString: Untagged
@@ -29451,7 +29494,6 @@ GameObject:
   - component: {fileID: 2920418779417051378}
   - component: {fileID: 1668366582}
   - component: {fileID: 308795504}
-  - component: {fileID: 3983115354283433653}
   m_Layer: 0
   m_Name: Event Hall Portal
   m_TagString: Untagged
@@ -29583,28 +29625,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838467185369713579}
   m_Mesh: {fileID: 7302691294567377693, guid: 3c03e6632ef16004f8d16a0dfab8eb2c, type: 3}
---- !u!114 &3983115354283433653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838467185369713579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
-  sceneViewId: 1
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!33 &3983115354762550904
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -29626,28 +29646,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportToShop: 1
---- !u!114 &3983115354762550906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838467183707802471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
-  sceneViewId: 2
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!4 &6391330949976531108
 Transform:
   m_ObjectHideFlags: 0

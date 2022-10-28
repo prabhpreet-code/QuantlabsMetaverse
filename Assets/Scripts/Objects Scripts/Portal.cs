@@ -27,8 +27,6 @@ public class Portal : MonoBehaviourPunCallbacks
 
     private void OnTriggerStay(Collider other)
     {
-        if (portalView.IsMine)
-        {
             if (other.GetComponent<PhotonView>().IsMine)
             {
                 if (other.gameObject.tag == "Player")
@@ -43,87 +41,30 @@ public class Portal : MonoBehaviourPunCallbacks
 
                         if (SceneManager.GetActiveScene().name == EVENT_HALL_TAG || SceneManager.GetActiveScene().name == SHOP_TAG)
                         {
-                            currentRoom = 1;
-                            PhotonNetwork.LeaveRoom();
-
+                            ConnectionManager.nextRoom = "LobbyRoom";
+                            ConnectionManager.nextLevel = LOBBY_TAG;
                         }
                         else
                         {
-                            currentRoom = 0;
-                            PhotonNetwork.LeaveRoom();
+                            if (teleportToShop)
+                            {
+                                ConnectionManager.nextRoom = "ShopRoom";
+                                ConnectionManager.nextLevel = SHOP_TAG;
+                            } else
+                            {
+                                ConnectionManager.nextRoom = "EventRoom";
+                                ConnectionManager.nextLevel = EVENT_HALL_TAG;
+                            }
                         }
+
+                        PhotonNetwork.LeaveRoom();
                     }
                 }
-            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         portalTime = 3f;
-    }
-
-    public override void OnConnectedToMaster()
-    {
-        PhotonNetwork.AutomaticallySyncScene = false;
-        PhotonNetwork.JoinLobby();
-    }
-
-    public override void OnJoinedLobby()
-    {
-        if (currentRoom == 0)
-        {
-            if (!teleportToShop)
-            {
-                PhotonNetwork.JoinRoom("EventHallRoom");
-            }
-            else if (teleportToShop)
-            {
-                PhotonNetwork.JoinRoom("ShopRoom");
-            }
-        }
-        else PhotonNetwork.JoinRoom("LobbyRoom");
-
-    }
-
-    public override void OnJoinRoomFailed(short returnCode, string message)
-    {
-        base.OnJoinRandomFailed(returnCode, message);
-
-        if (currentRoom == 0)
-        {
-            if (!teleportToShop)
-            {
-                PhotonNetwork.CreateRoom("EventHallRoom");
-            }
-            else if (teleportToShop)
-            {
-                PhotonNetwork.CreateRoom("ShopRoom");
-            }
-        }
-        else PhotonNetwork.CreateRoom("LobbyRoom");
-
-    }
-
-    public override void OnJoinedRoom()
-    {
-        if (currentRoom == 0)
-        {
-            if (!teleportToShop)
-            {
-                PhotonNetwork.LoadLevel(EVENT_HALL_TAG);
-
-            }
-            else if (teleportToShop)
-            {
-                PhotonNetwork.LoadLevel(SHOP_TAG);
-            }
-        }
-        else PhotonNetwork.LoadLevel(LOBBY_TAG);
-    }
-
-    public override void OnLeftRoom()
-    {
-        GameManager.currentPlayer = null;
     }
 }
