@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     [SerializeField] private CinemachineFreeLook cinemachineCamera;
 
     [SerializeField] public static int avatarNum;
+    [SerializeField] public Canvas UI;
 
     public static GameObject currentPlayer;
 

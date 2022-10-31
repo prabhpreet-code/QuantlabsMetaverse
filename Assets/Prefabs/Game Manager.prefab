@@ -51,7 +51,7 @@ MonoBehaviour:
   - {fileID: 8462139751366899264, guid: 2e955760bbdd841a5af1aa43b89224a5, type: 3}
   - {fileID: 1128261082523770235, guid: 72015bde52c844b33a6dcdce5ad5cb40, type: 3}
   cinemachineCamera: {fileID: 4241218509968998779, guid: c4cd11d07c3314878be332d15903a55e, type: 3}
-  cam: {fileID: 0}
+  UI: {fileID: 134311741552773315, guid: dc5b324c324c64ce7b272d8f258af2e0, type: 3}
 --- !u!1 &8372185105663533110
 GameObject:
   m_ObjectHideFlags: 0

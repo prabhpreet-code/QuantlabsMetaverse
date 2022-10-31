@@ -39,6 +39,7 @@ public class PlayerBehaviorTrade : IPlayerBehavior
             currentShopkeeper.transform.LookAt(player.transform.position);
 
             //Managing UI
+            Debug.Log("Attempt");
             interfaceManager.inventoryPanel.SetActive(true);
             interfaceManager.shopPanel.SetActive(true);
 

@@ -1,16 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using Photon.Pun;
 
-public class InterfaceManager : MonoBehaviour
+public class InterfaceManager : MonoBehaviourPunCallbacks
 {
-    public Button inventoryButton;
-    public GameObject inventoryPanel;
-    public GameObject shopPanel;
-
-    private void Awake()
-    {
-
-    }
+    [SerializeField] public GameObject shopPanel;
+    [SerializeField] public GameObject inventoryPanel;
 }

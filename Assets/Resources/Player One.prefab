@@ -2258,7 +2258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86edce3cb25c044ed9b0c58d05422647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interfaceManager: {fileID: 0}
+  interfaceManager: {fileID: 4581742979187704224, guid: dc5b324c324c64ce7b272d8f258af2e0, type: 3}
   controller: {fileID: 0}
   animator: {fileID: 0}
   cam: {fileID: 0}
