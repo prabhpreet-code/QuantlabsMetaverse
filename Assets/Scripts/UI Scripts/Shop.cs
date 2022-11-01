@@ -51,6 +51,8 @@ public class Shop : MonoBehaviourPunCallbacks
 
         buyBtn.transform.GetChild(0).GetComponent<Text>().text = "Purchased";
 
+        //Adding Item to ScrollView and static inventory list
         Inventory.Instance.AddToInventory(ShopItemsList[itemIndex].Image);
+        Inventory.inventoryItems.Add(ShopItemsList[itemIndex].Image);
     }
 }

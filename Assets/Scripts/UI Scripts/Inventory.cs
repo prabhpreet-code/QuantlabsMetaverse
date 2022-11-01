@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Inventory : MonoBehaviour
 {
-
-    public List<GameObject> inventoryItems;
+    public static List<Sprite> inventoryItems = new List<Sprite>();
 
     [SerializeField] private GameObject itemPrefab;
     [SerializeField] Transform inventoryScrollView;
@@ -16,8 +16,6 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("HI");
-
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -26,28 +24,25 @@ public class Inventory : MonoBehaviour
         {
             Instance = this;
         }
-    }
 
-    private void Start()
-    {
-        Instance.LoadInventory();
+        LoadItems();
     }
 
     public void AddToInventory(Sprite inputNFT)
     {
-        
         itemPrefab.transform.GetChild(0).GetComponent<Image>().sprite = inputNFT;
-        inventoryItems.Add(itemPrefab);
         Instantiate(itemPrefab, inventoryScrollView);
     }
 
-    public void LoadInventory()
+    public void LoadItems()
     {
-        Debug.Log("Method has started");
-        foreach (GameObject item in inventoryItems)
+        if (inventoryItems.Count != 0)
         {
-            Debug.Log("Method has once again");
-            Instantiate(item, inventoryScrollView);
+            foreach (Sprite item in inventoryItems)
+            {
+                itemPrefab.transform.GetChild(0).GetComponent<Image>().sprite = item;
+                Instantiate(itemPrefab, inventoryScrollView);
+            }
         }
     }
 }
