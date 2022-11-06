@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24397132, g: 0.24989644, b: 0.25224978, a: 1}
+  m_IndirectSpecularColor: {r: 0.24618718, g: 0.2519202, b: 0.25410467, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -29911,10 +29911,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 493997561, guid: dc5b324c324c64ce7b272d8f258af2e0, type: 3}
-      propertyPath: shopScrollView
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 134311741552773314, guid: dc5b324c324c64ce7b272d8f258af2e0, type: 3}
       propertyPath: m_Pivot.x
       value: 0

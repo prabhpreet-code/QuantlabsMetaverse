@@ -11,6 +11,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screen Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 443fe38ec983b30439d7d46ddbf05b49, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 443fe38ec983b30439d7d46ddbf05b49, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 443fe38ec983b30439d7d46ddbf05b49, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 443fe38ec983b30439d7d46ddbf05b49, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -24,6 +36,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 443fe38ec983b30439d7d46ddbf05b49, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 443fe38ec983b30439d7d46ddbf05b49, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.000000021855694
       objectReference: {fileID: 0}
@@ -34,14 +50,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 443fe38ec983b30439d7d46ddbf05b49, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 443fe38ec983b30439d7d46ddbf05b49, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 443fe38ec983b30439d7d46ddbf05b49, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 443fe38ec983b30439d7d46ddbf05b49, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -57,3 +65,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 443fe38ec983b30439d7d46ddbf05b49, type: 3}
+--- !u!1 &2568002024815069958 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 443fe38ec983b30439d7d46ddbf05b49, type: 3}
+  m_PrefabInstance: {fileID: 2568002024815168932}
+  m_PrefabAsset: {fileID: 0}
+--- !u!328 &1601076632
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568002024815069958}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 0}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 3
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 1
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
+--- !u!114 &1601076633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568002024815069958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4b63c54c38da4138a2f867b7ca5071a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  video: {fileID: 32900000, guid: 77948b10703064fa8a8255f36fa6eea5, type: 3}
