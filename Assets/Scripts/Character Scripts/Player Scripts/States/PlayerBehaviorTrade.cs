@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using UnityEngine;
 
 public class PlayerBehaviorTrade : IPlayerBehavior
@@ -27,6 +28,9 @@ public class PlayerBehaviorTrade : IPlayerBehavior
 
         if (currentShopkeeper != null)
         {
+            //Unlocking cursor
+            Cursor.lockState = CursorLockMode.None;
+
             currentShopkeeper.GetComponent<Shopkeeper>().SetBehaviorTrade();
 
             player.animator.SetBool("isTrading", true);
@@ -39,7 +43,6 @@ public class PlayerBehaviorTrade : IPlayerBehavior
             currentShopkeeper.transform.LookAt(player.transform.position);
 
             //Managing UI
-            Debug.Log("Attempt");
             interfaceManager.inventoryPanel.SetActive(true);
             interfaceManager.shopPanel.SetActive(true);
 
@@ -53,9 +56,11 @@ public class PlayerBehaviorTrade : IPlayerBehavior
     {
         if (currentShopkeeper != null)
         {
+            //Locking cursor
+            Cursor.lockState = CursorLockMode.Locked;
+
             player.animator.SetBool("isTrading", false);
             player.isTrading = false;
-
 
             currentShopkeeper.GetComponent<Shopkeeper>().SetBehaviorIdle();
             currentShopkeeper = null;

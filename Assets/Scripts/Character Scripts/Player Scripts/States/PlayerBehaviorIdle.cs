@@ -6,7 +6,7 @@ public class PlayerBehaviorIdle : IPlayerBehavior
 {
     void IPlayerBehavior.Enter(Player player, InterfaceManager interfaceManager)
     {
-
+        
     }
 
     void IPlayerBehavior.Exit(Player player, InterfaceManager interfaceManager)
@@ -27,6 +27,16 @@ public class PlayerBehaviorIdle : IPlayerBehavior
         if (Input.GetKeyDown("f"))
         {
             player.SetBehaviourSeat();
+        }
+
+        if (Input.GetKeyDown("i"))
+        {
+            interfaceManager.InteractWithInventory();
+        }
+
+        if (Input.GetKeyDown("c"))
+        {
+            interfaceManager.InteractWithControls();
         }
     }
 

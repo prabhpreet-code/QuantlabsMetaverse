@@ -31,7 +31,7 @@ public class Shop : MonoBehaviourPunCallbacks
         {
             g = Instantiate(itemTemplate, shopScrollView);
             g.transform.GetChild(0).GetComponent<Image>().sprite = ShopItemsList[i].Image;
-            g.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = ShopItemsList[i].Price.ToString();
+            g.transform.GetChild(1).GetComponent<Text>().text = ShopItemsList[i].Price.ToString() + " $";
 
 
             buyBtn = g.transform.GetChild(2).GetComponent<Button>();
@@ -44,15 +44,15 @@ public class Shop : MonoBehaviourPunCallbacks
 
     void OnShopButtonClicked(int itemIndex)
     {
-        ShopItemsList[itemIndex].isPurchased = true;
+        if (Inventory.Instance.CheckBalance(ShopItemsList[itemIndex].Price)){
+            ShopItemsList[itemIndex].isPurchased = true;
 
-        buyBtn = shopScrollView.GetChild(itemIndex).GetChild(2).GetComponent<Button>();
-        buyBtn.interactable = false;
+            buyBtn = shopScrollView.GetChild(itemIndex).GetChild(2).GetComponent<Button>();
+            buyBtn.interactable = false;
 
-        buyBtn.transform.GetChild(0).GetComponent<Text>().text = "Purchased";
+            buyBtn.transform.GetChild(0).GetComponent<Text>().text = "Purchased";
 
-        //Adding Item to ScrollView and static inventory list
-        Inventory.Instance.AddToInventory(ShopItemsList[itemIndex].Image);
-        Inventory.inventoryItems.Add(ShopItemsList[itemIndex].Image);
+            Inventory.Instance.AddToInventory(ShopItemsList[itemIndex].Image, ShopItemsList[itemIndex].Price);
+        }
     }
 }

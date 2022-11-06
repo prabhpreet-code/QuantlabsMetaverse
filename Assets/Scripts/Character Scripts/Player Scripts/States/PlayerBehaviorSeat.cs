@@ -82,7 +82,17 @@ public class PlayerBehaviorSeat : IPlayerBehavior
         {
             player.SetBehaviorIdle();
         }
-        
+
+        if (Input.GetKeyDown("i"))
+        {
+            interfaceManager.InteractWithInventory();
+        }
+
+        if (Input.GetKeyDown("c"))
+        {
+            interfaceManager.InteractWithControls();
+        }
+
     }
 
     void IPlayerBehavior.Exit(Player player, InterfaceManager interfaceManager)

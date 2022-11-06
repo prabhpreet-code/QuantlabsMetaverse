@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using System.Net.Sockets;
 
 public class Player : MonoBehaviour
 {
@@ -51,6 +52,9 @@ public class Player : MonoBehaviour
     {
         if (view.IsMine)
         {
+            //Locking cursor
+            Cursor.lockState = CursorLockMode.Locked;
+
             this.InitBehaviors();
             this.SetBehaviorByDefault();
         }
@@ -142,5 +146,4 @@ public class Player : MonoBehaviour
             interfaceManager = GameObject.FindWithTag("Canvas").GetComponent<InterfaceManager>();
         }
     }
-
 }
